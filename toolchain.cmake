@@ -10,7 +10,7 @@ set(CMAKE_OBJDUMP llvm-objdump-10)
 set(CMAKE_RANLIB llvm-ranlib-10)
 
 # Build
-set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_BUILD_TYPE ${BUILD_TYPE})
 
 # C++
 set(CMAKE_CXX_STANDARD 17)
