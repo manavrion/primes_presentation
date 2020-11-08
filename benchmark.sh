@@ -1,2 +1,5 @@
 cd "$(dirname "$0")"
-.build/benchmark/macrobench
+rm -rf .benchbuild
+mkdir .benchbuild
+cd .benchbuild
+../.build/benchmark/macrobench
