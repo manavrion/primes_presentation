@@ -180,13 +180,14 @@ void bench(const size_t table_limit) {
   std::cout << "CONFIGURATION with table_limit = " << table_limit << std::endl;
 
   try_build(table_limit, "00_runtime", false);
-  try_build(table_limit, "00_runtime", true);
   try_build(table_limit, "01_compile_time", false);
-  try_build(table_limit, "01_compile_time", true);
-  try_build_02_build_step(table_limit, false);
-  try_build_02_build_step(table_limit, true);
   try_build_02_build_step_gen_without_preprare_step(table_limit, false);
+  try_build_02_build_step(table_limit, false);
+
+  try_build(table_limit, "00_runtime", true);
+  try_build(table_limit, "01_compile_time", true);
   try_build_02_build_step_gen_without_preprare_step(table_limit, true);
+  try_build_02_build_step(table_limit, true);
 
   std::cout << std::endl;
 }
