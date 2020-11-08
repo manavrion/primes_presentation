@@ -8,8 +8,8 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         tool: [
-          clang_debug,
-          clang_release]
+          clang_release,
+          gcc_release]
 
     runs-on: ${{ matrix.os }}
 
@@ -18,6 +18,9 @@ jobs:
 
       - name: Install clang compiler
         run: sudo bash .github/workflows/install_clang.sh
+
+      - name: Install gcc compiler
+        run: sudo bash .github/workflows/install_gcc.sh
 
       - name: Configure
         run: cmake -S . -B .build -DTABLE_LIMIT=1000 -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.tool }}.cmake"
