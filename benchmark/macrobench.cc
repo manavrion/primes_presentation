@@ -20,13 +20,15 @@ int cmd(std::string line, bool use_exception = true, bool hide_out = true) {
 }
 
 std::optional<std::int64_t> try_build(const size_t table_limit,
-                                      std::string target,
-                                      bool is_debug = false) {
-  std::string compile_command = "clang++-12";
-  compile_command += " -stdlib=libc++";
+                                      std::string target, bool is_debug,
+                                      std::string compiler) {
+  std::string compile_command = compiler;
   compile_command += " -std=c++20";
-  compile_command += " -fconstexpr-depth=1000";
-  compile_command += " -fconstexpr-steps=1000000000";
+  if (compiler == "clang++-12") {
+    compile_command += " -stdlib=libc++";
+    compile_command += " -fconstexpr-depth=1000";
+    compile_command += " -fconstexpr-steps=1000000000";
+  }
   compile_command += " ../src/" + target + "/main.cc";
   compile_command += " -o " + target;
   compile_command += " -DTABLE_LIMIT=" + std::to_string(table_limit);
@@ -49,6 +51,7 @@ std::optional<std::int64_t> try_build(const size_t table_limit,
   }
 
   std::cout << (is_debug ? "debug" : "release") << "\t";
+  std::cout << compiler << "\t";
 
   std::cout.flush();
   system(du_command.c_str());
@@ -60,13 +63,14 @@ std::optional<std::int64_t> try_build(const size_t table_limit,
 }
 
 std::optional<std::int64_t> try_build_02_build_step(const size_t table_limit,
-                                                    bool is_debug = false) {
+                                                    bool is_debug,
+                                                    std::string compiler) {
   const std::string target = "02_build_step";
-  std::string compile_command = "clang++-12";
-  compile_command += " -stdlib=libc++";
+  std::string compile_command = compiler;
+  if (compiler == "clang++-12") {
+    compile_command += " -stdlib=libc++";
+  }
   compile_command += " -std=c++20";
-  compile_command += " -fconstexpr-depth=1000";
-  compile_command += " -fconstexpr-steps=1000000000";
   compile_command += " ../src/" + target + "/main.cc";
   compile_command += " -o " + target;
   compile_command += " -DTABLE_LIMIT=" + std::to_string(table_limit);
@@ -76,11 +80,11 @@ std::optional<std::int64_t> try_build_02_build_step(const size_t table_limit,
                                    " | ./02_build_step > "
                                    "02_build_step_gen.cc";
 
-  std::string gen_compile_command = "clang++-12";
-  gen_compile_command += " -stdlib=libc++";
+  std::string gen_compile_command = compiler;
+  if (compiler == "clang++-12") {
+    gen_compile_command += " -stdlib=libc++";
+  }
   gen_compile_command += " -std=c++20";
-  gen_compile_command += " -fconstexpr-depth=1000";
-  gen_compile_command += " -fconstexpr-steps=1000000000";
   gen_compile_command += " 02_build_step_gen.cc";
   gen_compile_command += " -o 02_build_step_gen";
   gen_compile_command += " -DTABLE_LIMIT=" + std::to_string(table_limit);
@@ -107,6 +111,7 @@ std::optional<std::int64_t> try_build_02_build_step(const size_t table_limit,
   }
 
   std::cout << (is_debug ? "debug" : "release") << "\t";
+  std::cout << compiler << "\t";
 
   std::cout.flush();
   system(du_command.c_str());
@@ -118,13 +123,13 @@ std::optional<std::int64_t> try_build_02_build_step(const size_t table_limit,
 }
 
 std::optional<std::int64_t> try_build_02_build_step_gen_without_preprare_step(
-    const size_t table_limit, bool is_debug = false) {
+    const size_t table_limit, bool is_debug, std::string compiler) {
   const std::string target = "02_build_step";
-  std::string compile_command = "clang++-12";
-  compile_command += " -stdlib=libc++";
+  std::string compile_command = compiler;
+  if (compiler == "clang++-12") {
+    compile_command += " -stdlib=libc++";
+  }
   compile_command += " -std=c++20";
-  compile_command += " -fconstexpr-depth=1000";
-  compile_command += " -fconstexpr-steps=1000000000";
   compile_command += " ../src/" + target + "/main.cc";
   compile_command += " -o " + target;
   compile_command += " -DTABLE_LIMIT=" + std::to_string(table_limit);
@@ -134,11 +139,11 @@ std::optional<std::int64_t> try_build_02_build_step_gen_without_preprare_step(
                                    " | ./02_build_step > "
                                    "02_build_step_gen.cc";
 
-  std::string gen_compile_command = "clang++-12";
-  gen_compile_command += " -stdlib=libc++";
+  std::string gen_compile_command = compiler;
+  if (compiler == "clang++-12") {
+    gen_compile_command += " -stdlib=libc++";
+  }
   gen_compile_command += " -std=c++20";
-  gen_compile_command += " -fconstexpr-depth=1000";
-  gen_compile_command += " -fconstexpr-steps=1000000000";
   gen_compile_command += " 02_build_step_gen.cc";
   gen_compile_command += " -o 02_build_step_gen_without_preprare_step";
   gen_compile_command += " -DTABLE_LIMIT=" + std::to_string(table_limit);
@@ -166,6 +171,7 @@ std::optional<std::int64_t> try_build_02_build_step_gen_without_preprare_step(
   }
 
   std::cout << (is_debug ? "debug" : "release") << "\t";
+  std::cout << compiler << "\t";
 
   std::cout.flush();
   system(du_command.c_str());
@@ -179,15 +185,29 @@ std::optional<std::int64_t> try_build_02_build_step_gen_without_preprare_step(
 void bench(const size_t table_limit) {
   std::cout << "CONFIGURATION with table_limit = " << table_limit << std::endl;
 
-  try_build(table_limit, "00_runtime", false);
-  try_build(table_limit, "01_compile_time", false);
-  try_build_02_build_step_gen_without_preprare_step(table_limit, false);
-  try_build_02_build_step(table_limit, false);
+  try_build(table_limit, "00_runtime", false, "clang++-12");
+  try_build(table_limit, "01_compile_time", false, "clang++-12");
+  try_build_02_build_step_gen_without_preprare_step(table_limit, false,
+                                                    "clang++-12");
+  try_build_02_build_step(table_limit, false, "clang++-12");
 
-  try_build(table_limit, "00_runtime", true);
-  try_build(table_limit, "01_compile_time", true);
-  try_build_02_build_step_gen_without_preprare_step(table_limit, true);
-  try_build_02_build_step(table_limit, true);
+  try_build(table_limit, "00_runtime", true, "clang++-12");
+  try_build(table_limit, "01_compile_time", true, "clang++-12");
+  try_build_02_build_step_gen_without_preprare_step(table_limit, true,
+                                                    "clang++-12");
+  try_build_02_build_step(table_limit, true, "clang++-12");
+
+  try_build(table_limit, "00_runtime", false, "g++-10");
+  try_build(table_limit, "01_compile_time", false, "g++-10");
+  try_build_02_build_step_gen_without_preprare_step(table_limit, false,
+                                                    "g++-10");
+  try_build_02_build_step(table_limit, false, "g++-10");
+
+  try_build(table_limit, "00_runtime", true, "g++-10");
+  try_build(table_limit, "01_compile_time", true, "g++-10");
+  try_build_02_build_step_gen_without_preprare_step(table_limit, true,
+                                                    "g++-10");
+  try_build_02_build_step(table_limit, true, "g++-10");
 
   std::cout << std::endl;
 }
