@@ -1,5 +1,5 @@
-project(01_get_primes CXX)
+project(01_compile_time CXX)
 
-add_executable(01_get_primes main.cc)
+add_executable(01_compile_time main.cc)
 
-target_compile_features(01_get_primes PUBLIC cxx_std_17)
+target_compile_features(01_compile_time PUBLIC cxx_std_17)
