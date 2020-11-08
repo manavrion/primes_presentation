@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 
+namespace {
 auto get_primes_impl(size_t limit) {
   std::vector<char> not_prime(limit);
   not_prime[0] = not_prime[1] = true;
@@ -30,6 +31,7 @@ std::vector<size_t> get_primes(size_t limit) {
   }
   return primes;
 }
+}  // namespace
 
 int main() {
   std::vector<size_t> primes = get_primes(TABLE_LIMIT);

@@ -33,6 +33,7 @@
 
 # Build
 .build
+.benchbuild
 
 # IDEs
 .vscode
