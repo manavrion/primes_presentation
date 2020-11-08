@@ -1,5 +1,5 @@
-#include <array>
 #include <cassert>
+#include <iostream>
 #include <vector>
 
 constexpr size_t LIMIT = 1'000;
@@ -39,6 +39,15 @@ int main() {
   assert(primes[1] == 3);
   assert(primes[2] == 5);
   assert(primes[3] == 7);
+
+  std::int64_t i = 0;
+  while (std::cin >> i && i != -1) {
+    if (0 <= i && i < primes.size()) {
+      std::cout << primes[i] << '\n';
+    } else {
+      std::cout << "incorrect index\n";
+    }
+  }
 
   return 0;
 }
