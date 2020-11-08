@@ -1,8 +1,5 @@
-cmake_minimum_required(VERSION 3.8)
-project(00_runtime)
+project(00_runtime CXX)
 
-set(SOURCE_FILES main.cc)
+add_executable(00_runtime main.cc)
 
-source_group("sources" FILES ${SOURCE_FILES})
-
-add_executable(00_runtime ${SOURCE_FILES})
+target_compile_features(00_runtime PUBLIC cxx_std_11)
