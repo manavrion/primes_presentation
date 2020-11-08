@@ -1,5 +1,3 @@
-#!/bin/bash
-cd $(dirname "$0")
-
-source scripts/flags.sh
-scripts/build_impl.sh
+cd "$(dirname "$0")"
+cmake -S . -B .build -DCMAKE_TOOLCHAIN_FILE=toolchain/clang_debug.cmake
+cmake --build .build --parallel 8

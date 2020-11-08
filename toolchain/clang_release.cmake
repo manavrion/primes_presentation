@@ -10,4 +10,4 @@ set(CMAKE_OBJDUMP llvm-objdump-12)
 set(CMAKE_RANLIB llvm-ranlib-12)
 
 # Build
-set(CMAKE_BUILD_TYPE ${BUILD_TYPE})
+set(CMAKE_BUILD_TYPE Release)
