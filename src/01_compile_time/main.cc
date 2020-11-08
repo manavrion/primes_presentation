@@ -1,20 +1,9 @@
+#include <algorithm>
 #include <array>
 #include <cassert>
 #include <iostream>
 
 namespace {
-namespace ranges {
-template <typename C, typename T>
-constexpr size_t count(C&& c, T&& t) {
-  size_t res = 0;
-  for (auto&& val : c) {
-    if (val == t) {
-      ++res;
-    }
-  }
-  return res;
-}
-}  // namespace ranges
 
 template <size_t Limit>
 constexpr auto get_primes_impl() {
@@ -36,8 +25,8 @@ constexpr auto get_primes_impl() {
 template <size_t Limit>
 constexpr auto get_primes() {
   constexpr auto not_prime = get_primes_impl<Limit>();
-
-  std::array<size_t, ranges::count(not_prime, false)> primes{};
+  constexpr auto size = std::count(not_prime.begin(), not_prime.end(), false);
+  std::array<size_t, size> primes{};
   auto it = primes.begin();
   for (size_t i = 0; i < not_prime.size(); ++i) {
     if (!not_prime[i]) {

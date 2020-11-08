@@ -57,9 +57,9 @@ std::optional<std::int64_t> try_build(const size_t table_limit,
   return std::nullopt;
 }
 
-std::optional<std::int64_t> try_build_03_build_step(const size_t table_limit,
+std::optional<std::int64_t> try_build_02_build_step(const size_t table_limit,
                                                     bool is_debug = false) {
-  const std::string target = "03_build_step";
+  const std::string target = "02_build_step";
   std::string compile_command = "clang++-12";
   compile_command += " -stdlib=libc++";
   compile_command += " -std=c++20";
@@ -71,16 +71,16 @@ std::optional<std::int64_t> try_build_03_build_step(const size_t table_limit,
   compile_command += " -O3";
 
   std::string generation_command = "echo " + std::to_string(table_limit) +
-                                   " | ./03_build_step > "
-                                   "03_build_step_gen.cc";
+                                   " | ./02_build_step > "
+                                   "02_build_step_gen.cc";
 
   std::string gen_compile_command = "clang++-12";
   gen_compile_command += " -stdlib=libc++";
   gen_compile_command += " -std=c++20";
   gen_compile_command += " -fconstexpr-depth=1000";
   gen_compile_command += " -fconstexpr-steps=1000000000";
-  gen_compile_command += " 03_build_step_gen.cc";
-  gen_compile_command += " -o 03_build_step_gen";
+  gen_compile_command += " 02_build_step_gen.cc";
+  gen_compile_command += " -o 02_build_step_gen";
   gen_compile_command += " -DTABLE_LIMIT=" + std::to_string(table_limit);
   if (!is_debug) {
     gen_compile_command += " -O3";
@@ -94,7 +94,7 @@ std::optional<std::int64_t> try_build_03_build_step(const size_t table_limit,
 
   auto status = status1 + status2 + status3;
 
-  std::string du_command = "du -h 03_build_step_gen";
+  std::string du_command = "du -h 02_build_step_gen";
 
   auto duration =
       std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count();
@@ -118,8 +118,7 @@ void bench(const size_t table_limit) {
 
   try_build(table_limit, "00_runtime");
   try_build(table_limit, "01_compile_time");
-  try_build(table_limit, "02_compile_time_improved");
-  try_build_03_build_step(table_limit);
+  try_build_02_build_step(table_limit);
 
   std::cout << std::endl;
 }
