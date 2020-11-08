@@ -28,6 +28,10 @@ std::optional<std::int64_t> try_build(const size_t table_limit,
     compile_command += " -stdlib=libc++";
     compile_command += " -fconstexpr-depth=1000";
     compile_command += " -fconstexpr-steps=1000000000";
+  } else {
+    compile_command += " -fconstexpr-depth=1000";
+    compile_command += " -fconstexpr-loop-limit=1000000000";
+    compile_command += " -fconstexpr-ops-limit=1000000000";
   }
   compile_command += " ../src/" + target + "/main.cc";
   compile_command += " -o " + target;
