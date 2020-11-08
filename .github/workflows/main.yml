@@ -20,7 +20,7 @@ jobs:
         run: sudo bash .github/workflows/install_clang.sh
 
       - name: Configure
-        run: cmake -S . -B .build -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.tool }}.cmake"
+        run: cmake -S . -B .build -DTABLE_LIMIT=1000 -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.tool }}.cmake"
 
       - name: Build
         run: cmake --build .build --parallel 8

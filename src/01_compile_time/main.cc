@@ -2,8 +2,6 @@
 #include <cassert>
 #include <iostream>
 
-constexpr size_t LIMIT = 1'000;
-
 namespace ranges {
 template <typename C, typename T>
 constexpr size_t count(C&& c, T&& t) {
@@ -49,7 +47,7 @@ constexpr auto get_primes() {
 }
 
 int main() {
-  constexpr auto primes = get_primes<LIMIT>();
+  constexpr auto primes = get_primes<TABLE_LIMIT>();
   static_assert(primes[0] == 2);
   static_assert(primes[1] == 3);
   static_assert(primes[2] == 5);

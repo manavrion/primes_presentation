@@ -2,8 +2,6 @@
 #include <iostream>
 #include <vector>
 
-constexpr size_t LIMIT = 1'000;
-
 auto get_primes_impl(size_t limit) {
   std::vector<char> not_prime(limit);
   not_prime[0] = not_prime[1] = true;
@@ -34,7 +32,7 @@ std::vector<size_t> get_primes(size_t limit) {
 }
 
 int main() {
-  std::vector<size_t> primes = get_primes(LIMIT);
+  std::vector<size_t> primes = get_primes(TABLE_LIMIT);
   assert(primes[0] == 2);
   assert(primes[1] == 3);
   assert(primes[2] == 5);
