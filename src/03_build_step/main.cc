@@ -34,7 +34,24 @@ std::vector<size_t> get_primes(size_t limit) {
 }  // namespace
 
 int main() {
-  std::vector<size_t> primes = get_primes(TABLE_LIMIT);
+  size_t limit;
+  std::cin >> limit;
+  std::vector<size_t> primes = get_primes(limit);
+
+  std::cout << R"(#include <cassert>
+#include <array>
+#include <iostream>
+
+constexpr std::array<size_t, )"
+            << primes.size() << "> primes = {";
+
+  for (auto prime : primes) {
+    std::cout << prime << ", ";
+  }
+
+  std::cout << R"(};
+
+int main() {
   assert(primes[0] == 2);
   assert(primes[1] == 3);
   assert(primes[2] == 5);
@@ -48,6 +65,10 @@ int main() {
       std::cout << "incorrect index\n";
     }
   }
+
+  return 0;
+}
+)";
 
   return 0;
 }

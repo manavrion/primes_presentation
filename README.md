@@ -1,12 +1,10 @@
-# template_repository
-Just template.
+# primes_presentation
+
+# Install compilers
+
+clang - https://apt.llvm.org/
 
 # How to build
 
-1. git clone --recursive git@github.com:manavrion/template_repository.git
-2. ./bootstrap.sh
-3. ./build.sh
-
-# How to test
-
-1. ./test.sh
+1. git clone --recursive git@github.com:manavrion/primes_presentation.git
+2. ./build.sh

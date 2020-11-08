@@ -1,10 +1,15 @@
 cmake_minimum_required(VERSION 3.8)
-project(template_repository)
 
-# The code uses the root folder to #include
-include_directories("src/")
+project(primes_presentation CXX)
 
-# Ranges
-include_directories("submodules/range-v3/include")
+set(TABLE_LIMIT
+    0
+    CACHE STRING "Limit of the prime table")
+if(NOT TABLE_LIMIT MATCHES "[0-9]+$")
+  message(FATAL_ERROR "TABLE_LIMIT must be a number")
+endif()
 
+add_definitions(-DTABLE_LIMIT=${TABLE_LIMIT})
+
+add_subdirectory(benchmark)
 add_subdirectory(src)

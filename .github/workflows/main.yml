@@ -1,20 +1,29 @@
-name: CI
+name: main
 
 on: [push]
 
 jobs:
   build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        tool: [
+          clang_release,
+          gcc_release]
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
-    - name: Install snap
-      run: sudo bash scripts/install_snap.sh
+      - name: Install clang compiler
+        run: sudo bash .github/workflows/install_clang.sh
 
-    - name: Install compiler
-      run: sudo bash .github/workflows/install_compiler.sh
+      - name: Install gcc compiler
+        run: sudo bash .github/workflows/install_gcc.sh
 
-    - name: Build
-      run: CMAKE_BIN="snap run cmake" bash build.sh
+      - name: Configure
+        run: cmake -S . -B .build -DTABLE_LIMIT=1000 -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.tool }}.cmake"
+
+      - name: Build
+        run: cmake --build .build --parallel 8
