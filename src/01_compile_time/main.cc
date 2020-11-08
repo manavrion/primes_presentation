@@ -1,5 +1,7 @@
 #include <array>
 
+constexpr size_t LIMIT = 1'000;
+
 namespace ranges {
 template <typename C, typename T>
 constexpr size_t count(C&& c, T&& t) {
@@ -13,9 +15,9 @@ constexpr size_t count(C&& c, T&& t) {
 }
 }  // namespace ranges
 
-template <size_t S>
+template <size_t Limit>
 constexpr auto get_primes_impl() {
-  std::array<bool, S> not_prime{};
+  std::array<bool, Limit> not_prime{};
   not_prime[0] = not_prime[1] = true;
 
   for (size_t i = 2; i < not_prime.size(); ++i) {
@@ -30,9 +32,9 @@ constexpr auto get_primes_impl() {
   return not_prime;
 }
 
-template <size_t S>
+template <size_t Limit>
 constexpr auto get_primes() {
-  constexpr auto not_prime = get_primes_impl<S>();
+  constexpr auto not_prime = get_primes_impl<Limit>();
 
   std::array<size_t, ranges::count(not_prime, false)> primes{};
   auto it = primes.begin();
@@ -45,7 +47,7 @@ constexpr auto get_primes() {
 }
 
 int main() {
-  constexpr auto primes = get_primes<1000>();
+  constexpr auto primes = get_primes<LIMIT>();
   static_assert(primes[0] == 2);
   static_assert(primes[1] == 3);
   static_assert(primes[2] == 5);

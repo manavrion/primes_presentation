@@ -2,7 +2,7 @@
 #include <cassert>
 #include <vector>
 
-constexpr size_t LIMIT = 1'000'000;
+constexpr size_t LIMIT = 1'000;
 
 auto get_primes_impl(size_t limit) {
   std::vector<char> not_prime(limit);
