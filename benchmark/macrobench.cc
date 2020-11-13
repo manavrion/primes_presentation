@@ -9,9 +9,40 @@
 #include <string>
 #include <vector>
 
-constexpr int TRY_COUNT = 3;
+constexpr int TRY_COUNT = 101;
 
 int dummy = 0;
+
+namespace {
+auto get_primes_impl(int limit) {
+  std::vector<char> not_prime(limit);
+  not_prime[0] = not_prime[1] = true;
+
+  for (int i = 2; i < not_prime.size(); ++i) {
+    if (!not_prime[i]) {
+      if (i * i < not_prime.size()) {
+        for (int j = i * i; j < not_prime.size(); j += i) {
+          not_prime[j] = true;
+        }
+      }
+    }
+  }
+  return not_prime;
+}
+
+std::vector<int> get_primes(int limit) {
+  std::vector<int> primes;
+  auto not_prime = get_primes_impl(limit);
+
+  auto it = primes.begin();
+  for (int i = 0; i < not_prime.size(); ++i) {
+    if (!not_prime[i]) {
+      primes.emplace_back(i);
+    }
+  }
+  return primes;
+}
+}  // namespace
 
 float sum(const std::vector<std::int64_t>& data) {
   assert(!data.empty());
@@ -54,6 +85,43 @@ int cmd(std::string line, bool use_exception = true, bool hide_out = true) {
   return status;
 }
 
+std::optional<std::int64_t> try_classic_impl(const size_t table_limit) {
+  auto t1 = std::chrono::high_resolution_clock::now();
+  std::vector<int> primes = get_primes(table_limit);
+  auto status = !primes.empty();
+  auto t2 = std::chrono::high_resolution_clock::now();
+
+  auto duration =
+      std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count();
+
+  if (status) {
+    return duration;
+  }
+  return std::nullopt;
+}
+
+void try_classic(const size_t table_limit) {
+  std::vector<std::int64_t> data;
+  int try_count = TRY_COUNT;
+  while (try_count--) {
+    if (auto time = try_classic_impl(table_limit); time) {
+      data.emplace_back(*time);
+    }
+  }
+
+  if (!data.empty()) {
+    std::cout << "avg = " << avg(data) / 1000 / 1000
+              << "ms, mid = " << mid(data) / 1000 / 1000
+              << "ms, std = " << _std(data) / 1000 / 1000 << "ms\t";
+  } else {
+    std::cout << "compilation failed\t";
+  }
+
+  std::cout << "runtime"
+            << "\n";
+  std::cout.flush();
+}
+
 std::optional<std::int64_t> try_build_impl(const size_t table_limit,
                                            std::string target, bool is_debug,
                                            std::string compiler) {
@@ -79,8 +147,6 @@ std::optional<std::int64_t> try_build_impl(const size_t table_limit,
   auto t1 = std::chrono::high_resolution_clock::now();
   auto status = cmd(compile_command, false);
   auto t2 = std::chrono::high_resolution_clock::now();
-
-  std::string du_command = "du -h " + target;
 
   auto duration =
       std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count();
@@ -155,8 +221,6 @@ std::optional<std::int64_t> try_build_03_build_step_impl(
   auto t2 = std::chrono::high_resolution_clock::now();
 
   auto status = status1 + status2 + status3;
-
-  std::string du_command = "du -h 03_build_step_gen";
 
   auto duration =
       std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count();
@@ -237,8 +301,6 @@ try_build_03_build_step_gen_without_preprare_step_impl(const size_t table_limit,
 
   auto status = status2 + status3;
 
-  std::string du_command = "du -h 03_build_step_gen_without_preprare_step";
-
   auto duration =
       std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count();
 
@@ -280,6 +342,7 @@ void try_build_03_build_step_gen_without_preprare_step(const size_t table_limit,
 void bench(const size_t table_limit) {
   std::cout << "CONFIGURATION with table_limit = " << table_limit << std::endl;
 
+#if 0
   try_build(table_limit, "00_runtime", false, "clang++-12");
   try_build(table_limit, "01_compile_time", false, "clang++-12");
   try_build(table_limit, "02_compile_time_bits", false, "clang++-12");
@@ -287,30 +350,15 @@ void bench(const size_t table_limit) {
                                                     "clang++-12");
   try_build_03_build_step(table_limit, false, "clang++-12");
 
-#if 0
-  try_build(table_limit, "00_runtime", true, "clang++-12");
-  try_build(table_limit, "01_compile_time", true, "clang++-12");
-  try_build(table_limit, "02_compile_time_bits", true, "clang++-12");
-  try_build_03_build_step_gen_without_preprare_step(table_limit, true,
-                                                    "clang++-12");
-  try_build_03_build_step(table_limit, true, "clang++-12");
-#endif
-
   try_build(table_limit, "00_runtime", false, "g++-10");
   try_build(table_limit, "01_compile_time", false, "g++-10");
   try_build(table_limit, "02_compile_time_bits", false, "g++-10");
   try_build_03_build_step_gen_without_preprare_step(table_limit, false,
                                                     "g++-10");
   try_build_03_build_step(table_limit, false, "g++-10");
-
-#if 0
-  try_build(table_limit, "00_runtime", true, "g++-10");
-  try_build(table_limit, "01_compile_time", true, "g++-10");
-  try_build(table_limit, "02_compile_time_bits", true, "g++-10");
-  try_build_03_build_step_gen_without_preprare_step(table_limit, true,
-                                                    "g++-10");
-  try_build_03_build_step(table_limit, true, "g++-10");
 #endif
+
+  try_classic(table_limit);
 
   std::cout << std::endl;
 }
