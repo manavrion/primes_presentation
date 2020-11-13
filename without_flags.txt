@@ -1,0 +1,84 @@
+CONFIGURATION with table_limit = 10
+release	clang++-12	avg = 1071.45ms, mid = 1063.31ms, std = 112.004ms	00_runtime
+release	clang++-12	avg = 823.437ms, mid = 745.153ms, std = 156.558ms	01_compile_time
+release	clang++-12	avg = 970.195ms, mid = 945.241ms, std = 38.3487ms	02_compile_time_bits
+release	clang++-12	avg = 984.039ms, mid = 931.412ms, std = 101.405ms	03_build_step_gen_without_preprare_step
+release	clang++-12	avg = 1651.26ms, mid = 1713.49ms, std = 105.244ms	03_build_step_gen
+release	g++-10	avg = 697.19ms, mid = 658.512ms, std = 67.4121ms	00_runtime
+release	g++-10	avg = 828.445ms, mid = 843.336ms, std = 79.8188ms	01_compile_time
+release	g++-10	avg = 882.706ms, mid = 795.047ms, std = 131.34ms	02_compile_time_bits
+release	g++-10	avg = 524.152ms, mid = 525.309ms, std = 12.4583ms	03_build_step_gen_without_preprare_step
+release	g++-10	avg = 1092.75ms, mid = 1079.42ms, std = 19.7794ms	03_build_step_gen
+
+CONFIGURATION with table_limit = 100
+release	clang++-12	avg = 693.173ms, mid = 672.553ms, std = 41.8651ms	00_runtime
+release	clang++-12	avg = 742.705ms, mid = 639.715ms, std = 153.71ms	01_compile_time
+release	clang++-12	avg = 609.715ms, mid = 601.837ms, std = 11.2735ms	02_compile_time_bits
+release	clang++-12	avg = 653.914ms, mid = 629.715ms, std = 44.2156ms	03_build_step_gen_without_preprare_step
+release	clang++-12	avg = 1426.98ms, mid = 1408.31ms, std = 128.589ms	03_build_step_gen
+release	g++-10	avg = 806.19ms, mid = 844.25ms, std = 38.0598ms	00_runtime
+release	g++-10	avg = 1041.87ms, mid = 1041.87ms, std = 0ms	01_compile_time
+release	g++-10	avg = 923.463ms, mid = 941.8ms, std = 77.3713ms	02_compile_time_bits
+release	g++-10	avg = 838.663ms, mid = 787.481ms, std = 83.5989ms	03_build_step_gen_without_preprare_step
+release	g++-10	avg = 1434.9ms, mid = 1390.03ms, std = 125.525ms	03_build_step_gen
+
+CONFIGURATION with table_limit = 1000
+release	clang++-12	avg = 903.902ms, mid = 917.958ms, std = 39.8084ms	00_runtime
+release	clang++-12	avg = 943.25ms, mid = 922.35ms, std = 62.6159ms	01_compile_time
+release	clang++-12	avg = 952.453ms, mid = 952.453ms, std = 0ms	02_compile_time_bits
+release	clang++-12	compilation failed	03_build_step_gen_without_preprare_step
+release	clang++-12	compilation failed	03_build_step_gen
+release	g++-10	compilation failed	00_runtime
+release	g++-10	compilation failed	01_compile_time
+release	g++-10	compilation failed	02_compile_time_bits
+release	g++-10	compilation failed	03_build_step_gen_without_preprare_step
+release	g++-10	compilation failed	03_build_step_gen
+
+CONFIGURATION with table_limit = 10000
+release	clang++-12	compilation failed	00_runtime
+release	clang++-12	compilation failed	01_compile_time
+release	clang++-12	compilation failed	02_compile_time_bits
+release	clang++-12	compilation failed	03_build_step_gen_without_preprare_step
+release	clang++-12	compilation failed	03_build_step_gen
+release	g++-10	compilation failed	00_runtime
+release	g++-10	compilation failed	01_compile_time
+release	g++-10	compilation failed	02_compile_time_bits
+release	g++-10	compilation failed	03_build_step_gen_without_preprare_step
+release	g++-10	compilation failed	03_build_step_gen
+
+CONFIGURATION with table_limit = 100000
+release	clang++-12	compilation failed	00_runtime
+release	clang++-12	compilation failed	01_compile_time
+release	clang++-12	compilation failed	02_compile_time_bits
+release	clang++-12	compilation failed	03_build_step_gen_without_preprare_step
+release	clang++-12	compilation failed	03_build_step_gen
+release	g++-10	compilation failed	00_runtime
+release	g++-10	compilation failed	01_compile_time
+release	g++-10	compilation failed	02_compile_time_bits
+release	g++-10	compilation failed	03_build_step_gen_without_preprare_step
+release	g++-10	compilation failed	03_build_step_gen
+
+CONFIGURATION with table_limit = 1000000
+release	clang++-12	compilation failed	00_runtime
+release	clang++-12	compilation failed	01_compile_time
+release	clang++-12	compilation failed	02_compile_time_bits
+release	clang++-12	compilation failed	03_build_step_gen_without_preprare_step
+release	clang++-12	compilation failed	03_build_step_gen
+release	g++-10	compilation failed	00_runtime
+release	g++-10	compilation failed	01_compile_time
+release	g++-10	compilation failed	02_compile_time_bits
+release	g++-10	compilation failed	03_build_step_gen_without_preprare_step
+release	g++-10	compilation failed	03_build_step_gen
+
+CONFIGURATION with table_limit = 10000000
+release	clang++-12	compilation failed	00_runtime
+release	clang++-12	compilation failed	01_compile_time
+release	clang++-12	compilation failed	02_compile_time_bits
+release	clang++-12	compilation failed	03_build_step_gen_without_preprare_step
+release	clang++-12	compilation failed	03_build_step_gen
+release	g++-10	compilation failed	00_runtime
+release	g++-10	compilation failed	01_compile_time
+release	g++-10	compilation failed	02_compile_time_bits
+release	g++-10	compilation failed	03_build_step_gen_without_preprare_step
+release	g++-10	compilation failed	03_build_step_gen
+
