@@ -5,15 +5,15 @@
 
 namespace {
 
-template <size_t Limit>
+template <int Limit>
 constexpr auto get_primes_impl() {
   std::array<bool, Limit> not_prime{};
   not_prime[0] = not_prime[1] = true;
 
-  for (size_t i = 2; i < not_prime.size(); ++i) {
+  for (int i = 2; i < not_prime.size(); ++i) {
     if (!not_prime[i]) {
       if (i * i < not_prime.size()) {
-        for (size_t j = i * i; j < not_prime.size(); j += i) {
+        for (int j = i * i; j < not_prime.size(); j += i) {
           not_prime[j] = true;
         }
       }
@@ -22,13 +22,13 @@ constexpr auto get_primes_impl() {
   return not_prime;
 }
 
-template <size_t Limit>
+template <int Limit>
 constexpr auto get_primes() {
   constexpr auto not_prime = get_primes_impl<Limit>();
   constexpr auto size = std::count(not_prime.begin(), not_prime.end(), false);
-  std::array<size_t, size> primes{};
+  std::array<int, size> primes{};
   auto it = primes.begin();
-  for (size_t i = 0; i < not_prime.size(); ++i) {
+  for (int i = 0; i < not_prime.size(); ++i) {
     if (!not_prime[i]) {
       *it++ = i;
     }

@@ -3,14 +3,14 @@
 #include <vector>
 
 namespace {
-auto get_primes_impl(size_t limit) {
+auto get_primes_impl(int limit) {
   std::vector<char> not_prime(limit);
   not_prime[0] = not_prime[1] = true;
 
-  for (size_t i = 2; i < not_prime.size(); ++i) {
+  for (int i = 2; i < not_prime.size(); ++i) {
     if (!not_prime[i]) {
       if (i * i < not_prime.size()) {
-        for (size_t j = i * i; j < not_prime.size(); j += i) {
+        for (int j = i * i; j < not_prime.size(); j += i) {
           not_prime[j] = true;
         }
       }
@@ -19,12 +19,12 @@ auto get_primes_impl(size_t limit) {
   return not_prime;
 }
 
-std::vector<size_t> get_primes(size_t limit) {
-  std::vector<size_t> primes;
+std::vector<int> get_primes(int limit) {
+  std::vector<int> primes;
   auto not_prime = get_primes_impl(limit);
 
   auto it = primes.begin();
-  for (size_t i = 0; i < not_prime.size(); ++i) {
+  for (int i = 0; i < not_prime.size(); ++i) {
     if (!not_prime[i]) {
       primes.emplace_back(i);
     }
@@ -34,15 +34,15 @@ std::vector<size_t> get_primes(size_t limit) {
 }  // namespace
 
 int main() {
-  size_t limit;
+  int limit;
   std::cin >> limit;
-  std::vector<size_t> primes = get_primes(limit);
+  std::vector<int> primes = get_primes(limit);
 
   std::cout << R"(#include <cassert>
 #include <array>
 #include <iostream>
 
-constexpr std::array<size_t, )"
+constexpr std::array<int, )"
             << primes.size() << "> primes = {";
 
   for (auto prime : primes) {

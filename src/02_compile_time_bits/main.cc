@@ -5,14 +5,14 @@
 #include <iostream>
 
 namespace {
-template <size_t Limit>
+template <int Limit>
 constexpr auto get_primes() {
-  constexpr size_t base = 64;
-  constexpr size_t not_prime_size = Limit / base + bool(Limit % base);
-  auto get = [](size_t i, auto& not_prime) {
+  constexpr int base = 64;
+  constexpr int not_prime_size = Limit / base + bool(Limit % base);
+  auto get = [](int i, auto& not_prime) {
     return bool(not_prime[i / base] & (uint64_t{1} << (i % base)));
   };
-  auto set = [](size_t i, auto& not_prime) {
+  auto set = [](int i, auto& not_prime) {
     not_prime[i / base] |= (uint64_t{1} << (i % base));
   };
   constexpr auto not_prime = [&]() {
@@ -20,10 +20,10 @@ constexpr auto get_primes() {
     set(0, not_prime);
     set(1, not_prime);
 
-    for (size_t i = 2; i < Limit; ++i) {
+    for (int i = 2; i < Limit; ++i) {
       if (!get(i, not_prime)) {
         if (i * i < Limit) {
-          for (size_t j = i * i; j < Limit; j += i) {
+          for (int j = i * i; j < Limit; j += i) {
             set(j, not_prime);
           }
         }
@@ -32,8 +32,8 @@ constexpr auto get_primes() {
     return not_prime;
   }();
   constexpr auto size = [&]() {
-    size_t res = 0;
-    for (size_t i = 0; i < Limit; ++i) {
+    int res = 0;
+    for (int i = 0; i < Limit; ++i) {
       if (!get(i, not_prime)) {
         ++res;
       }
@@ -41,9 +41,9 @@ constexpr auto get_primes() {
     return res;
   }();
 
-  std::array<size_t, size> primes{};
+  std::array<int, size> primes{};
   auto it = primes.begin();
-  for (size_t i = 0; i < Limit; ++i) {
+  for (int i = 0; i < Limit; ++i) {
     if (!get(i, not_prime)) {
       *it++ = i;
     }

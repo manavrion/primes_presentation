@@ -1,0 +1,21 @@
+CONFIGURATION with table_limit = 10
+avg = 0.000366446ms, mid = 0.000272ms, std = 0.000842829ms	runtime
+
+CONFIGURATION with table_limit = 100
+avg = 0.00107438ms, mid = 0.000984ms, std = 0.000493184ms	runtime
+
+CONFIGURATION with table_limit = 1000
+avg = 0.00808048ms, mid = 0.007058ms, std = 0.00279918ms	runtime
+
+CONFIGURATION with table_limit = 10000
+avg = 0.0845683ms, mid = 0.076505ms, std = 0.0103424ms	runtime
+
+CONFIGURATION with table_limit = 100000
+avg = 0.476967ms, mid = 0.439028ms, std = 0.0958113ms	runtime
+
+CONFIGURATION with table_limit = 1000000
+avg = 5.35406ms, mid = 4.73507ms, std = 2.16769ms	runtime
+
+CONFIGURATION with table_limit = 10000000
+avg = 57.6595ms, mid = 51.6781ms, std = 15.4117ms	runtime
+

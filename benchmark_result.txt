@@ -1,0 +1,177 @@
+CONFIGURATION with table_limit = 10
+1329ms 	release	clang++-12	20K	00_runtime
+562ms 	release	clang++-12	20K	01_compile_time
+570ms 	release	clang++-12	20K	02_compile_time_bits
+577ms 	release	clang++-12	20K	03_build_step_gen_without_preprare_step
+1255ms 	release	clang++-12	20K	03_build_step_gen
+841ms 	debug	clang++-12	56K	00_runtime
+847ms 	debug	clang++-12	24K	01_compile_time
+1022ms 	debug	clang++-12	24K	02_compile_time_bits
+817ms 	debug	clang++-12	24K	03_build_step_gen_without_preprare_step
+1720ms 	debug	clang++-12	24K	03_build_step_gen
+918ms 	release	g++-10	20K	00_runtime
+1081ms 	release	g++-10	20K	01_compile_time
+736ms 	release	g++-10	20K	02_compile_time_bits
+912ms 	release	g++-10	20K	03_build_step_gen_without_preprare_step
+1306ms 	release	g++-10	20K	03_build_step_gen
+581ms 	debug	g++-10	36K	00_runtime
+800ms 	debug	g++-10	20K	01_compile_time
+739ms 	debug	g++-10	20K	02_compile_time_bits
+571ms 	debug	g++-10	20K	03_build_step_gen_without_preprare_step
+1265ms 	debug	g++-10	20K	03_build_step_gen
+
+CONFIGURATION with table_limit = 100
+690ms 	release	clang++-12	20K	00_runtime
+651ms 	release	clang++-12	20K	01_compile_time
+657ms 	release	clang++-12	20K	02_compile_time_bits
+712ms 	release	clang++-12	20K	03_build_step_gen_without_preprare_step
+1488ms 	release	clang++-12	20K	03_build_step_gen
+692ms 	debug	clang++-12	56K	00_runtime
+591ms 	debug	clang++-12	24K	01_compile_time
+593ms 	debug	clang++-12	24K	02_compile_time_bits
+895ms 	debug	clang++-12	24K	03_build_step_gen_without_preprare_step
+1427ms 	debug	clang++-12	24K	03_build_step_gen
+664ms 	release	g++-10	20K	00_runtime
+756ms 	release	g++-10	20K	01_compile_time
+846ms 	release	g++-10	20K	02_compile_time_bits
+754ms 	release	g++-10	20K	03_build_step_gen_without_preprare_step
+1221ms 	release	g++-10	20K	03_build_step_gen
+610ms 	debug	g++-10	36K	00_runtime
+775ms 	debug	g++-10	20K	01_compile_time
+812ms 	debug	g++-10	20K	02_compile_time_bits
+772ms 	debug	g++-10	20K	03_build_step_gen_without_preprare_step
+1445ms 	debug	g++-10	20K	03_build_step_gen
+
+CONFIGURATION with table_limit = 1000
+706ms 	release	clang++-12	20K	00_runtime
+691ms 	release	clang++-12	20K	01_compile_time
+694ms 	release	clang++-12	20K	02_compile_time_bits
+887ms 	release	clang++-12	20K	03_build_step_gen_without_preprare_step
+1520ms 	release	clang++-12	20K	03_build_step_gen
+667ms 	debug	clang++-12	56K	00_runtime
+629ms 	debug	clang++-12	28K	01_compile_time
+681ms 	debug	clang++-12	28K	02_compile_time_bits
+652ms 	debug	clang++-12	28K	03_build_step_gen_without_preprare_step
+1370ms 	debug	clang++-12	28K	03_build_step_gen
+584ms 	release	g++-10	20K	00_runtime
+806ms 	release	g++-10	20K	01_compile_time
+812ms 	release	g++-10	20K	02_compile_time_bits
+472ms 	release	g++-10	20K	03_build_step_gen_without_preprare_step
+1027ms 	release	g++-10	20K	03_build_step_gen
+520ms 	debug	g++-10	36K	00_runtime
+721ms 	debug	g++-10	20K	01_compile_time
+760ms 	debug	g++-10	20K	02_compile_time_bits
+462ms 	debug	g++-10	20K	03_build_step_gen_without_preprare_step
+1035ms 	debug	g++-10	20K	03_build_step_gen
+
+CONFIGURATION with table_limit = 10000
+687ms 	release	clang++-12	20K	00_runtime
+918ms 	release	clang++-12	28K	01_compile_time
+1178ms 	release	clang++-12	28K	02_compile_time_bits
+602ms 	release	clang++-12	28K	03_build_step_gen_without_preprare_step
+1301ms 	release	clang++-12	28K	03_build_step_gen
+613ms 	debug	clang++-12	56K	00_runtime
+850ms 	debug	clang++-12	36K	01_compile_time
+1128ms 	debug	clang++-12	36K	02_compile_time_bits
+602ms 	debug	clang++-12	36K	03_build_step_gen_without_preprare_step
+1259ms 	debug	clang++-12	36K	03_build_step_gen
+577ms 	release	g++-10	20K	00_runtime
+2128ms 	release	g++-10	28K	01_compile_time
+1025ms 	release	g++-10	28K	02_compile_time_bits
+478ms 	release	g++-10	28K	03_build_step_gen_without_preprare_step
+1286ms 	release	g++-10	28K	03_build_step_gen
+549ms 	debug	g++-10	36K	00_runtime
+1988ms 	debug	g++-10	28K	01_compile_time
+1041ms 	debug	g++-10	28K	02_compile_time_bits
+459ms 	debug	g++-10	28K	03_build_step_gen_without_preprare_step
+1017ms 	debug	g++-10	28K	03_build_step_gen
+
+CONFIGURATION with table_limit = 100000
+698ms 	release	clang++-12	20K	00_runtime
+4205ms 	release	clang++-12	96K	01_compile_time
+6600ms 	release	clang++-12	96K	02_compile_time_bits
+584ms 	release	clang++-12	96K	03_build_step_gen_without_preprare_step
+1273ms 	release	clang++-12	96K	03_build_step_gen
+619ms 	debug	clang++-12	56K	00_runtime
+4190ms 	debug	clang++-12	100K	01_compile_time
+6568ms 	debug	clang++-12	100K	02_compile_time_bits
+533ms 	debug	clang++-12	100K	03_build_step_gen_without_preprare_step
+1222ms 	debug	clang++-12	100K	03_build_step_gen
+565ms 	release	g++-10	20K	00_runtime
+compilation failed 	
+command: g++-10 -std=c++20 -fconstexpr-depth=1000 -fconstexpr-loop-limit=1000000000 -fconstexpr-ops-limit=1000000000 ../src/01_compile_time/main.cc -o 01_compile_time -DTABLE_LIMIT=100000 -O3
+release	g++-10	100K	01_compile_time
+7702ms 	release	g++-10	92K	02_compile_time_bits
+529ms 	release	g++-10	92K	03_build_step_gen_without_preprare_step
+1145ms 	release	g++-10	92K	03_build_step_gen
+570ms 	debug	g++-10	36K	00_runtime
+compilation failed 	
+command: g++-10 -std=c++20 -fconstexpr-depth=1000 -fconstexpr-loop-limit=1000000000 -fconstexpr-ops-limit=1000000000 ../src/01_compile_time/main.cc -o 01_compile_time -DTABLE_LIMIT=100000
+debug	g++-10	100K	01_compile_time
+7734ms 	debug	g++-10	96K	02_compile_time_bits
+508ms 	debug	g++-10	96K	03_build_step_gen_without_preprare_step
+1082ms 	debug	g++-10	96K	03_build_step_gen
+
+CONFIGURATION with table_limit = 1000000
+1006ms 	release	clang++-12	20K	00_runtime
+44784ms 	release	clang++-12	632K	01_compile_time
+77373ms 	release	clang++-12	632K	02_compile_time_bits
+786ms 	release	clang++-12	632K	03_build_step_gen_without_preprare_step
+1424ms 	release	clang++-12	632K	03_build_step_gen
+578ms 	debug	clang++-12	56K	00_runtime
+41654ms 	debug	clang++-12	640K	01_compile_time
+75844ms 	debug	clang++-12	640K	02_compile_time_bits
+691ms 	debug	clang++-12	640K	03_build_step_gen_without_preprare_step
+1395ms 	debug	clang++-12	640K	03_build_step_gen
+585ms 	release	g++-10	20K	00_runtime
+compilation failed 	
+command: g++-10 -std=c++20 -fconstexpr-depth=1000 -fconstexpr-loop-limit=1000000000 -fconstexpr-ops-limit=1000000000 ../src/01_compile_time/main.cc -o 01_compile_time -DTABLE_LIMIT=1000000 -O3
+release	g++-10	640K	01_compile_time
+compilation failed 	
+command: g++-10 -std=c++20 -fconstexpr-depth=1000 -fconstexpr-loop-limit=1000000000 -fconstexpr-ops-limit=1000000000 ../src/02_compile_time_bits/main.cc -o 02_compile_time_bits -DTABLE_LIMIT=1000000 -O3
+release	g++-10	640K	02_compile_time_bits
+779ms 	release	g++-10	632K	03_build_step_gen_without_preprare_step
+1426ms 	release	g++-10	632K	03_build_step_gen
+568ms 	debug	g++-10	36K	00_runtime
+compilation failed 	
+command: g++-10 -std=c++20 -fconstexpr-depth=1000 -fconstexpr-loop-limit=1000000000 -fconstexpr-ops-limit=1000000000 ../src/01_compile_time/main.cc -o 01_compile_time -DTABLE_LIMIT=1000000
+debug	g++-10	640K	01_compile_time
+compilation failed 	
+command: g++-10 -std=c++20 -fconstexpr-depth=1000 -fconstexpr-loop-limit=1000000000 -fconstexpr-ops-limit=1000000000 ../src/02_compile_time_bits/main.cc -o 02_compile_time_bits -DTABLE_LIMIT=1000000
+debug	g++-10	640K	02_compile_time_bits
+711ms 	debug	g++-10	632K	03_build_step_gen_without_preprare_step
+1362ms 	debug	g++-10	632K	03_build_step_gen
+
+CONFIGURATION with table_limit = 10000000
+953ms 	release	clang++-12	20K	00_runtime
+494760ms 	release	clang++-12	5.1M	01_compile_time
+830100ms 	release	clang++-12	5.1M	02_compile_time_bits
+1859ms 	release	clang++-12	5.1M	03_build_step_gen_without_preprare_step
+2825ms 	release	clang++-12	5.1M	03_build_step_gen
+638ms 	debug	clang++-12	56K	00_runtime
+524038ms 	debug	clang++-12	5.1M	01_compile_time
+compilation failed 	
+command: clang++-12 -std=c++20 -stdlib=libc++ -fconstexpr-depth=1000 -fconstexpr-steps=1000000000 ../src/02_compile_time_bits/main.cc -o 02_compile_time_bits -DTABLE_LIMIT=10000000
+debug	clang++-12	5.1M	02_compile_time_bits
+compilation failed 	debug	clang++-12	5.1M	03_build_step_gen_without_preprare_step
+compilation failed 	debug	clang++-12	5.1M	03_build_step_gen
+compilation failed 	
+command: g++-10 -std=c++20 -fconstexpr-depth=1000 -fconstexpr-loop-limit=1000000000 -fconstexpr-ops-limit=1000000000 ../src/00_runtime/main.cc -o 00_runtime -DTABLE_LIMIT=10000000 -O3
+release	g++-10	56K	00_runtime
+compilation failed 	
+command: g++-10 -std=c++20 -fconstexpr-depth=1000 -fconstexpr-loop-limit=1000000000 -fconstexpr-ops-limit=1000000000 ../src/01_compile_time/main.cc -o 01_compile_time -DTABLE_LIMIT=10000000 -O3
+release	g++-10	5.1M	01_compile_time
+compilation failed 	
+command: g++-10 -std=c++20 -fconstexpr-depth=1000 -fconstexpr-loop-limit=1000000000 -fconstexpr-ops-limit=1000000000 ../src/02_compile_time_bits/main.cc -o 02_compile_time_bits -DTABLE_LIMIT=10000000 -O3
+release	g++-10	5.1M	02_compile_time_bits
+compilation failed 	release	g++-10	compilation failed 	release	g++-10	0	03_build_step_gen
+compilation failed 	
+command: g++-10 -std=c++20 -fconstexpr-depth=1000 -fconstexpr-loop-limit=1000000000 -fconstexpr-ops-limit=1000000000 ../src/00_runtime/main.cc -o 00_runtime -DTABLE_LIMIT=10000000
+debug	g++-10	56K	00_runtime
+compilation failed 	
+command: g++-10 -std=c++20 -fconstexpr-depth=1000 -fconstexpr-loop-limit=1000000000 -fconstexpr-ops-limit=1000000000 ../src/01_compile_time/main.cc -o 01_compile_time -DTABLE_LIMIT=10000000
+debug	g++-10	5.1M	01_compile_time
+compilation failed 	
+command: g++-10 -std=c++20 -fconstexpr-depth=1000 -fconstexpr-loop-limit=1000000000 -fconstexpr-ops-limit=1000000000 ../src/02_compile_time_bits/main.cc -o 02_compile_time_bits -DTABLE_LIMIT=10000000
+debug	g++-10	5.1M	02_compile_time_bits
+compilation failed 	debug	g++-10	compilation failed 	debug	g++-10	

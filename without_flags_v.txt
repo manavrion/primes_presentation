@@ -1,0 +1,77 @@
+CONFIGURATION with table_limit = 10
+release	clang++-12	avg = 1130.69ms, mid = 1030.79ms, std = 153.34ms	00_runtime
+release	clang++-12	avg = 1007.66ms, mid = 951.933ms, std = 235.25ms	01_compile_time
+release	clang++-12	avg = 960.977ms, mid = 857.076ms, std = 196.797ms	02_compile_time_bits
+release	clang++-12	avg = 796.356ms, mid = 774.529ms, std = 160.04ms	03_build_step_gen_without_preprare_step
+release	clang++-12	avg = 1775.56ms, mid = 1694.84ms, std = 148.274ms	03_build_step_gen
+release	g++-10	avg = 828.317ms, mid = 798.209ms, std = 50.2595ms	00_runtime
+release	g++-10	avg = 836.2ms, mid = 833.432ms, std = 6.56488ms	01_compile_time
+release	g++-10	avg = 1132.74ms, mid = 1099.59ms, std = 246.557ms	02_compile_time_bits
+release	g++-10	avg = 731.091ms, mid = 726.798ms, std = 65.641ms	03_build_step_gen_without_preprare_step
+release	g++-10	avg = 1443.67ms, mid = 1471.21ms, std = 52.6444ms	03_build_step_gen
+
+CONFIGURATION with table_limit = 100
+release	clang++-12	avg = 954.693ms, mid = 826.255ms, std = 203.605ms	00_runtime
+release	clang++-12	avg = 682.848ms, mid = 680.675ms, std = 30.681ms	01_compile_time
+release	clang++-12	avg = 666.781ms, mid = 685.405ms, std = 37.742ms	02_compile_time_bits
+release	clang++-12	avg = 845.922ms, mid = 832.237ms, std = 34.186ms	03_build_step_gen_without_preprare_step
+release	clang++-12	avg = 1736.35ms, mid = 1757.69ms, std = 74.4982ms	03_build_step_gen
+release	g++-10	avg = 747.418ms, mid = 712.892ms, std = 59.5204ms	00_runtime
+release	g++-10	avg = 869.421ms, mid = 855.365ms, std = 48.9ms	01_compile_time
+release	g++-10	avg = 886.957ms, mid = 783.87ms, std = 156.063ms	02_compile_time_bits
+release	g++-10	avg = 523.061ms, mid = 521.549ms, std = 2.34368ms	03_build_step_gen_without_preprare_step
+release	g++-10	avg = 1248.12ms, mid = 1207.96ms, std = 115.319ms	03_build_step_gen
+
+CONFIGURATION with table_limit = 1000
+release	clang++-12	avg = 764.098ms, mid = 720.256ms, std = 63.9325ms	00_runtime
+release	clang++-12	avg = 635.762ms, mid = 639.027ms, std = 9.18983ms	01_compile_time
+release	clang++-12	avg = 673.446ms, mid = 643.885ms, std = 42.1505ms	02_compile_time_bits
+release	clang++-12	avg = 750.138ms, mid = 798.004ms, std = 71.1964ms	03_build_step_gen_without_preprare_step
+release	clang++-12	avg = 1381.15ms, mid = 1386.78ms, std = 29.0058ms	03_build_step_gen
+release	g++-10	avg = 598.621ms, mid = 598.846ms, std = 0.841011ms	00_runtime
+release	g++-10	avg = 814.27ms, mid = 801.965ms, std = 37.67ms	01_compile_time
+release	g++-10	avg = 804.413ms, mid = 805.859ms, std = 9.67137ms	02_compile_time_bits
+release	g++-10	avg = 535.765ms, mid = 515.458ms, std = 39.7312ms	03_build_step_gen_without_preprare_step
+release	g++-10	avg = 1147.02ms, mid = 1166.3ms, std = 57.0308ms	03_build_step_gen
+
+CONFIGURATION with table_limit = 10000
+release	clang++-12	avg = 787.278ms, mid = 719.312ms, std = 145.411ms	00_runtime
+release	clang++-12	avg = 1061.99ms, mid = 1104.04ms, std = 70.6241ms	01_compile_time
+release	clang++-12	avg = 1197.14ms, mid = 1181.76ms, std = 26.8608ms	02_compile_time_bits
+release	clang++-12	avg = 755.51ms, mid = 777.758ms, std = 109.629ms	03_build_step_gen_without_preprare_step
+release	clang++-12	avg = 1526.1ms, mid = 1581.24ms, std = 90.3633ms	03_build_step_gen
+release	g++-10	avg = 775.079ms, mid = 578.958ms, std = 293.946ms	00_runtime
+release	g++-10	avg = 2178.8ms, mid = 2222.42ms, std = 82.0875ms	01_compile_time
+release	g++-10	avg = 1156.55ms, mid = 1153.94ms, std = 6.49934ms	02_compile_time_bits
+release	g++-10	avg = 491.728ms, mid = 491.981ms, std = 2.8429ms	03_build_step_gen_without_preprare_step
+release	g++-10	avg = 1097.2ms, mid = 1091.88ms, std = 20.6653ms	03_build_step_gen
+
+CONFIGURATION with table_limit = 100000
+release	clang++-12	avg = 681.437ms, mid = 695.649ms, std = 25.2445ms	00_runtime
+release	clang++-12	compilation failed	01_compile_time
+release	clang++-12	compilation failed	02_compile_time_bits
+release	clang++-12	avg = 629.425ms, mid = 632.355ms, std = 6.29247ms	03_build_step_gen_without_preprare_step
+release	clang++-12	avg = 1520.91ms, mid = 1397.02ms, std = 205.166ms	03_build_step_gen
+release	g++-10	avg = 576.622ms, mid = 576.416ms, std = 23.8732ms	00_runtime
+release	g++-10	compilation failed	01_compile_time
+release	g++-10	compilation failed	02_compile_time_bits
+release	g++-10	avg = 604.652ms, mid = 603.826ms, std = 69.967ms	03_build_step_gen_without_preprare_step
+release	g++-10	avg = 1099.03ms, mid = 1082.16ms, std = 29.9193ms	03_build_step_gen
+
+CONFIGURATION with table_limit = 1000000
+release	clang++-12	avg = 689.18ms, mid = 689.967ms, std = 4.81466ms	00_runtime
+release	clang++-12	compilation failed	01_compile_time
+release	clang++-12	compilation failed	02_compile_time_bits
+release	clang++-12	avg = 720.229ms, mid = 707.954ms, std = 18.6855ms	03_build_step_gen_without_preprare_step
+release	clang++-12	avg = 1464.37ms, mid = 1490.12ms, std = 37.2347ms	03_build_step_gen
+release	g++-10	avg = 589.182ms, mid = 591.634ms, std = 12.513ms	00_runtime
+release	g++-10	compilation failed	01_compile_time
+release	g++-10	compilation failed	02_compile_time_bits
+release	g++-10	avg = 659.973ms, mid = 645.411ms, std = 26.1699ms	03_build_step_gen_without_preprare_step
+release	g++-10	avg = 1262.6ms, mid = 1232.03ms, std = 43.3225ms	03_build_step_gen
+
+CONFIGURATION with table_limit = 10000000
+release	clang++-12	avg = 793.847ms, mid = 750.694ms, std = 104.366ms	00_runtime
+release	clang++-12	compilation failed	01_compile_time
+release	clang++-12	compilation failed	02_compile_time_bits
+release	clang++-12	avg = 1786.17ms, mid = 1689.97ms, std = 256.007ms	03_build_step_gen_without_preprare_step
